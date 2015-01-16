@@ -1,0 +1,26 @@
+{
+    "name": "iverberk/semver",
+    "version": "2.2.0",
+    "description": "Automatically increase composer version number",
+    "authors": [
+        {
+            "name": "Ivo Verberk",
+            "email": "ivo.verberk@gmail.com"
+        },
+        {
+            "name": "Ferry de Groot",
+            "email": "watkannogwel@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "vierbergenlars/php-semver": "3.0.0",
+        "symfony/console": "2.6.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Iverberk\\Semver": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}

@@ -1,0 +1,13 @@
+#!/usr/bin/env php
+<?php
+
+require __DIR__ . '/../vendor/autoload.php';
+
+use Iverberk\Semver\Commands\GetVersionCommand;
+use Iverberk\Semver\Commands\IncreaseVersionCommand;
+use Symfony\Component\Console\Application;
+
+$application = new Application();
+$application->add(new GetVersionCommand());
+$application->add(new IncreaseVersionCommand());
+$application->run();
