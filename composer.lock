@@ -4,21 +4,68 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "bc02a0039a620f34a38a76db7b5b1fd2",
+    "hash": "b9474aec3d47942cb7bbcd3714f852ec",
     "packages": [
         {
+            "name": "naneau/semver",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/naneau/semver.git",
+                "reference": "54ee69549f4f977c673d582464ecb4960ce6f560"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/naneau/semver/zipball/54ee69549f4f977c673d582464ecb4960ce6f560",
+                "reference": "54ee69549f4f977c673d582464ecb4960ce6f560",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Naneau\\SemVer\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maurice Fonk",
+                    "email": "maurice@naneau.net",
+                    "homepage": "http://mauricefonk.com",
+                    "role": "developer"
+                }
+            ],
+            "description": "A decent, standards-compliant, Semantic Versioning (SemVer) parser and library",
+            "homepage": "https://github.com/naneau/semver",
+            "keywords": [
+                "semantic",
+                "semver",
+                "versioning"
+            ],
+            "time": "2014-06-17 17:00:16"
+        },
+        {
             "name": "symfony/console",
-            "version": "v2.6.3",
+            "version": "2.6.x-dev",
             "target-dir": "Symfony/Component/Console",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Console.git",
-                "reference": "6ac6491ff60c0e5a941db3ccdc75a07adbb61476"
+                "reference": "3c48eafeb8ef205a62b724941367460893e5b141"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Console/zipball/6ac6491ff60c0e5a941db3ccdc75a07adbb61476",
-                "reference": "6ac6491ff60c0e5a941db3ccdc75a07adbb61476",
+                "url": "https://api.github.com/repos/symfony/Console/zipball/3c48eafeb8ef205a62b724941367460893e5b141",
+                "reference": "3c48eafeb8ef205a62b724941367460893e5b141",
                 "shasum": ""
             },
             "require": {
@@ -61,65 +108,15 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "http://symfony.com",
-            "time": "2015-01-06 17:50:02"
-        },
-        {
-            "name": "vierbergenlars/php-semver",
-            "version": "3.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/vierbergenlars/php-semver.git",
-                "reference": "4dc35f3804f3b127ad557b8b2255c03204dec951"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/vierbergenlars/php-semver/zipball/4dc35f3804f3b127ad557b8b2255c03204dec951",
-                "reference": "4dc35f3804f3b127ad557b8b2255c03204dec951",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "simpletest/simpletest": "1.1.*"
-            },
-            "bin": [
-                "bin/semver",
-                "bin/update-versions"
-            ],
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "vierbergenlars\\SemVer\\": "src/",
-                    "vierbergenlars\\LibJs\\": "src/"
-                },
-                "classmap": [
-                    "src/vierbergenlars/SemVer/internal.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Lars Vierbergen",
-                    "email": "vierbergenlars@gmail.com"
-                }
-            ],
-            "description": "The Semantic Versioner for PHP",
-            "keywords": [
-                "semantic",
-                "semver",
-                "versioning"
-            ],
-            "time": "2013-12-21 17:10:13"
+            "time": "2015-01-13 07:22:24"
         }
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "naneau/semver": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
