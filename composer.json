@@ -1,6 +1,6 @@
 {
     "name": "iverberk/semver-updater",
-    "version": "0.9.6",
+    "version": "0.9.8",
     "description": "Automatically increase composer version number",
     "authors": [
         {
@@ -12,7 +12,9 @@
             "email": "watkannogwel@gmail.com"
         }
     ],
-	"bin": ["bin/semver"],
+    "bin": [
+        "bin/semver"
+    ],
     "require": {
         "php": ">=5.4.0",
         "naneau/semver": "dev-master",
