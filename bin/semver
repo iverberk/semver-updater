@@ -1,7 +1,16 @@
 #!/usr/bin/env php
 <?php
 
-require_once dirname(__FILE__).'/../../../autoload.php';
+$autoload = dirname(__FILE__) . '/../../../autoload.php';
+
+if (file_exists($autoload))
+{
+	require_once $autoload;
+}
+else
+{
+	require_once __DIR__ . '/../vendor/autoload.php';
+}
 
 use Iverberk\Semver\Commands\GetVersionCommand;
 use Iverberk\Semver\Commands\IncreaseVersionCommand;

@@ -1,13 +1,13 @@
 #!/bin/bash -e
 
-VERSION=$(bin/semver get composer.json)
+VERSION=$(bin/semver get version.json)
 
 git tag -a $VERSION -m $VERSION
 git push --tags
 
-bin/semver increase composer.json
+bin/semver increase version.json
 
-git add composer.json
+git add version.json
 git commit -m "Increase version"
 git push origin master
 
