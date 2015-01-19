@@ -5,7 +5,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use vierbergenlars\SemVer\version;
+use Naneau\SemVer\Parser;
 
 class IncreaseVersionCommand extends Command {
 
@@ -23,7 +23,7 @@ class IncreaseVersionCommand extends Command {
 				'type',
 				null,
 				InputOption::VALUE_OPTIONAL,
-				'Release type (major, minor, patch or build)',
+				'Release type (major, minor or patch)',
 				'patch'
 			)
 			->addOption(
@@ -41,7 +41,7 @@ class IncreaseVersionCommand extends Command {
 		$config = json_decode(file_get_contents($file), true);
 
 		$type = $input->getOption('type');
-		if ( ! in_array($type, ['major', 'minor', 'patch', 'build']))
+		if ( ! in_array($type, ['major', 'minor', 'patch']))
 		{
 			return $this->error($output, 'Type can only be one of major, minor, patch or build');
 		}
@@ -51,18 +51,23 @@ class IncreaseVersionCommand extends Command {
 			$key = $input->getOption('key');
 			if (isset($config[$key]))
 			{
-				$version = new version($config[$key]);
+				$version = Parser::parse($config[$key]);
 
-				if ($version->valid())
-				{
-					$config[$key] = $version->inc($type)->getVersion();
+				switch ($type) {
+					case 'major':
+						$version->setMajor($version->getMajor() + 1);
+						break;
+					case 'minor':
+						$version->setMinor($version->getMinor() + 1);
+						break;
+					case 'patch':
+						$version->setPatch($version->getPatch() + 1);
+						break;
+				}
 
-					file_put_contents($file, json_encode($config, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
-				}
-				else
-				{
-					return $this->error($output, 'Current version number is not valid according to semantic versioning');
-				}
+				$config[$key] = $version->__toString();
+
+				file_put_contents($file, json_encode($config, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
 			}
 		}
 		else
@@ -87,4 +92,4 @@ class IncreaseVersionCommand extends Command {
 		return 1;
 	}
 
-} 
+}
