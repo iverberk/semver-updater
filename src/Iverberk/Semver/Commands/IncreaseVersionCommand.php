@@ -5,7 +5,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use vierbergenlars\SemVer\version;
+use Naneau\SemVer\Parser;
 
 class IncreaseVersionCommand extends Command {
 
@@ -51,18 +51,13 @@ class IncreaseVersionCommand extends Command {
 			$key = $input->getOption('key');
 			if (isset($config[$key]))
 			{
-				$version = new version($config[$key]);
+				$version = Parser::parse($config[$key]);
 
-				if ($version->valid())
-				{
-					$config[$key] = $version->inc($type)->getVersion();
+				$version->setPatch($version->getPatch() + 1);
 
-					file_put_contents($file, json_encode($config, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
-				}
-				else
-				{
-					return $this->error($output, 'Current version number is not valid according to semantic versioning');
-				}
+				$config[$key] = $version;
+
+				file_put_contents($file, json_encode($config, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
 			}
 		}
 		else
@@ -87,4 +82,4 @@ class IncreaseVersionCommand extends Command {
 		return 1;
 	}
 
-} 
+}
