@@ -16,7 +16,7 @@
     "require": {
         "php": ">=5.4.0",
         "naneau/semver": "dev-master",
-        "symfony/console": "*"
+        "symfony/console": "2.6.*"
     },
     "autoload": {
         "psr-0": {
