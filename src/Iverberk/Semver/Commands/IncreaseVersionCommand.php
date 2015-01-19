@@ -55,7 +55,7 @@ class IncreaseVersionCommand extends Command {
 
 				$version->setPatch($version->getPatch() + 1);
 
-				$config[$key] = $version;
+				$config[$key] = $version->__toString();
 
 				file_put_contents($file, json_encode($config, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
 			}

@@ -15,7 +15,8 @@
 	"bin": ["bin/semver"],
     "require": {
         "php": ">=5.4.0",
-        "naneau/semver": "dev-master"
+        "naneau/semver": "dev-master",
+        "symfony/console": "*"
     },
     "autoload": {
         "psr-0": {
