@@ -23,7 +23,7 @@ class IncreaseVersionCommand extends Command {
 				'type',
 				null,
 				InputOption::VALUE_OPTIONAL,
-				'Release type (major, minor, patch or build)',
+				'Release type (major, minor or patch)',
 				'patch'
 			)
 			->addOption(
@@ -41,7 +41,7 @@ class IncreaseVersionCommand extends Command {
 		$config = json_decode(file_get_contents($file), true);
 
 		$type = $input->getOption('type');
-		if ( ! in_array($type, ['major', 'minor', 'patch', 'build']))
+		if ( ! in_array($type, ['major', 'minor', 'patch']))
 		{
 			return $this->error($output, 'Type can only be one of major, minor, patch or build');
 		}
@@ -53,7 +53,17 @@ class IncreaseVersionCommand extends Command {
 			{
 				$version = Parser::parse($config[$key]);
 
-				$version->setPatch($version->getPatch() + 1);
+				switch ($type) {
+					case 'major':
+						$version->setMajor($version->getMajor() + 1);
+						break;
+					case 'minor':
+						$version->setMinor($version->getMinor() + 1);
+						break;
+					case 'patch':
+						$version->setPatch($version->getPatch() + 1);
+						break;
+				}
 
 				$config[$key] = $version->__toString();
 
