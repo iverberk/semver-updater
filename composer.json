@@ -15,7 +15,7 @@
 	"bin": ["bin/semver"],
     "require": {
         "php": ">=5.4.0",
-        "vierbergenlars/php-semver": "3.0.0"
+        "naneau/semver": "dev-master"
     },
     "autoload": {
         "psr-0": {
