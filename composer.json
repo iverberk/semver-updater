@@ -1,5 +1,5 @@
 {
-    "name": "iverberk/semver",
+    "name": "iverberk/semver-updater",
     "version": "0.9.1",
     "description": "Automatically increase composer version number",
     "authors": [
