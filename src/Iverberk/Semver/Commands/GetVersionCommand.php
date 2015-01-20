@@ -5,6 +5,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Naneau\SemVer\Parser;
 
 class GetVersionCommand extends Command {
 
@@ -24,6 +25,12 @@ class GetVersionCommand extends Command {
 				InputOption::VALUE_OPTIONAL,
 				'JSON key that contains the version number',
 				'version'
+			)->addOption(
+				'no-build',
+				null,
+				InputOption::VALUE_NONE,
+				'Remove build number from version',
+				null
 			);
 	}
 
@@ -37,7 +44,20 @@ class GetVersionCommand extends Command {
 			$key = $input->getOption('key');
 			if (isset($config[$key]))
 			{
-				$output->writeln($config[$key]);
+				$version = Parser::parse($config[$key]);
+
+				if ($version->hasBuild() && $input->getOption('no-build'))
+				{
+					$build = $version->getBuild()->__toString();
+
+					$version = str_replace('+' . $build, '', $version->__toString());
+				}
+				else
+				{
+					$version = $version->__toString();
+				}
+
+				$output->writeln($version);
 			}
 		}
 		else
