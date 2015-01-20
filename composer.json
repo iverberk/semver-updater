@@ -1,6 +1,6 @@
 {
     "name": "iverberk/semver-updater",
-    "description": "Automatically increase composer version number",
+    "description": "Automatically increase version numbers for automated builds",
     "authors": [
         {
             "name": "Ivo Verberk",
