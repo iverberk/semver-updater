@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-VERSION=$(bin/semver get version.json)
+VERSION=$(bin/semver get --no-build version.json)
 
 git tag -a $VERSION -m $VERSION
 git push --tags
