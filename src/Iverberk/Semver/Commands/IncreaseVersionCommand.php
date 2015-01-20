@@ -23,8 +23,8 @@ class IncreaseVersionCommand extends Command {
 				'type',
 				null,
 				InputOption::VALUE_OPTIONAL,
-				'Release type (major, minor or patch)',
-				'patch'
+				'Release type (major, minor, patch or build)',
+				'build'
 			)
 			->addOption(
 				'key',
@@ -41,7 +41,7 @@ class IncreaseVersionCommand extends Command {
 		$config = json_decode(file_get_contents($file), true);
 
 		$type = $input->getOption('type');
-		if ( ! in_array($type, ['major', 'minor', 'patch']))
+		if ( ! in_array($type, ['major', 'minor', 'patch', 'build']))
 		{
 			return $this->error($output, 'Type can only be one of major, minor, patch or build');
 		}
@@ -62,6 +62,17 @@ class IncreaseVersionCommand extends Command {
 						break;
 					case 'patch':
 						$version->setPatch($version->getPatch() + 1);
+						break;
+					case 'build':
+						if ($version->hasBuild())
+						{
+							$version->getBuild()->setNumber($version->getBuild()->getNumber() + 1);
+						}
+						else
+						{
+							$version->setBuild(new \Naneau\SemVer\Version\Build());
+							$version->getBuild()->setNumber(1);
+						}
 						break;
 				}
 
