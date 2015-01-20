@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b9474aec3d47942cb7bbcd3714f852ec",
+    "hash": "faed726055fad085c39928ac87958ebe",
     "packages": [
         {
             "name": "naneau/semver",
@@ -60,12 +60,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Console.git",
-                "reference": "3c48eafeb8ef205a62b724941367460893e5b141"
+                "reference": "c483805ec0189376fa7a8427a059c64fc7238944"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Console/zipball/3c48eafeb8ef205a62b724941367460893e5b141",
-                "reference": "3c48eafeb8ef205a62b724941367460893e5b141",
+                "url": "https://api.github.com/repos/symfony/Console/zipball/c483805ec0189376fa7a8427a059c64fc7238944",
+                "reference": "c483805ec0189376fa7a8427a059c64fc7238944",
                 "shasum": ""
             },
             "require": {
@@ -108,7 +108,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "http://symfony.com",
-            "time": "2015-01-13 07:22:24"
+            "time": "2015-01-20 01:40:20"
         }
     ],
     "packages-dev": [],
