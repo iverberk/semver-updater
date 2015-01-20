@@ -2,7 +2,7 @@
 
 VERSION=$(bin/semver get --no-build version.json)
 
-git tag -a $VERSION -m $VERSION
+git tag --force -a $VERSION -m $VERSION
 git push --force origin $VERSION
 
 bin/semver increase version.json
