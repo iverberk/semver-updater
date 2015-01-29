@@ -4,19 +4,19 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2c820d31fef5db33c1c37eae8613037d",
+    "hash": "4cf28c65630c28af450843f8e965aa7f",
     "packages": [
         {
             "name": "naneau/semver",
-            "version": "dev-master",
+            "version": "0.9.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/naneau/semver.git",
+                "url": "https://github.com/iverberk/semver.git",
                 "reference": "54ee69549f4f977c673d582464ecb4960ce6f560"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/naneau/semver/zipball/aed3dbf89a5dfd7b768a60b60283ba4f8a7a0422",
+                "url": "https://api.github.com/repos/iverberk/semver/zipball/54ee69549f4f977c673d582464ecb4960ce6f560",
                 "reference": "54ee69549f4f977c673d582464ecb4960ce6f560",
                 "shasum": ""
             },
@@ -32,7 +32,6 @@
                     "Naneau\\SemVer\\": "src"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -51,7 +50,10 @@
                 "semver",
                 "versioning"
             ],
-            "time": "2014-06-17 17:00:16"
+            "support": {
+                "source": "https://github.com/iverberk/semver/tree/0.9.0"
+            },
+            "time": "2013-01-04 00:00:00"
         },
         {
             "name": "symfony/console",
@@ -114,9 +116,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "naneau/semver": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
