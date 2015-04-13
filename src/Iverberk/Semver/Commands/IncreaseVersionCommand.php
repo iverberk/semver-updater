@@ -56,9 +56,12 @@ class IncreaseVersionCommand extends Command {
 				switch ($type) {
 					case 'major':
 						$version->setMajor($version->getMajor() + 1);
+						$version->setMinor(0);
+						$version->setPatch(0);
 						break;
 					case 'minor':
 						$version->setMinor($version->getMinor() + 1);
+						$version->setPatch(0);
 						break;
 					case 'patch':
 						$version->setPatch($version->getPatch() + 1);
